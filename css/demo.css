@@ -1,0 +1,53 @@
+.demo-page {
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.12), transparent 45%), var(--color-bg);
+}
+
+.demo-main {
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 3rem;
+}
+
+.demo-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.demo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.demo-kicker {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    color: var(--color-accent);
+    margin-bottom: 0.8rem;
+}
+
+.demo-header h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 400;
+    margin-bottom: 0.7rem;
+}
+
+.demo-header p {
+    color: var(--color-text-dim);
+}
+
+.demo-frame-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 1rem;
+}
+
+.demo-frame-card iframe {
+    width: 100%;
+    max-width: 100%;
+    height: min(72vh, 680px);
+    border-radius: 12px;
+    display: block;
+}
