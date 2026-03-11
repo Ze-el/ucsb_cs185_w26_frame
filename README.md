@@ -38,6 +38,7 @@ https://`<your-username>`{=html}.github.io/ucsb_cs185_w26_frame/
 │   ├── app_colors.css \# App palette + theme tokens\
 │   ├── styles.css \# Shared site styling\
 │   └── subpages.css \# Shared demo/GR4 page styling\
+├── assets/design/design-elements.md \# Brand/design reference file\
 ├── pages/ \# Additional website pages\
 ├── images/ \# Image assets\
 └── README.md \# Project documentation
@@ -84,7 +85,7 @@ flow.
 
 ## Design System
 
--   Dark minimal interface\
+-   Design reference file: `assets/design/design-elements.md`\
 -   Centralized CSS variables\
 -   App color themes (`ocean`, `teal`, `sage`) via `data-theme` on `<html>`\
 -   Instrument Serif (headlines)\
