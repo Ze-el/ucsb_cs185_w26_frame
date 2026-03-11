@@ -34,9 +34,12 @@ https://`<your-username>`{=html}.github.io/ucsb_cs185_w26_frame/
 ## Repository Structure
 
 . ├── index.html \# Main landing page\
-├── styles.css \# Core styling\
-├── colors.css \# Centralized color palette\
-├── frame-logo/ \# Logo assets\
+├── css/\
+│   ├── app_colors.css \# App palette + theme tokens\
+│   ├── styles.css \# Shared site styling\
+│   └── subpages.css \# Shared demo/GR4 page styling\
+├── pages/ \# Additional website pages\
+├── images/ \# Image assets\
 └── README.md \# Project documentation
 
 ------------------------------------------------------------------------
@@ -83,6 +86,7 @@ flow.
 
 -   Dark minimal interface\
 -   Centralized CSS variables\
+-   App color themes (`ocean`, `teal`, `sage`) via `data-theme` on `<html>`\
 -   Instrument Serif (headlines)\
 -   DM Sans (body text)\
 -   Scroll-based animation using IntersectionObserver\
