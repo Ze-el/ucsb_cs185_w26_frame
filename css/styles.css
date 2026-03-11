@@ -224,12 +224,41 @@ footer .container > * {
     align-items: center;
     border-radius: var(--radius-pill);
     padding: 0.2rem 0.55rem;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .logo img {
     height: 34px;
     width: auto;
     display: block;
+}
+
+.logo-mark-text {
+    display: inline-block;
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
+    overflow: hidden;
+    transform: translateX(-0.7rem);
+    transform-origin: left center;
+    font-family: "Instrument Serif", "Times New Roman", serif;
+    font-size: 2rem;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--color-accent-strong);
+    transition:
+        max-width 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 240ms ease,
+        margin-left 420ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+nav.brand-revealed .logo-mark-text {
+    max-width: 6.2ch;
+    opacity: 1;
+    margin-left: 0.45rem;
+    transform: translateX(0);
 }
 
 .nav-links {
@@ -699,11 +728,14 @@ section {
     border-radius: var(--radius-lg);
     padding: 1.8rem;
     scroll-snap-align: start;
+    --gr-scroll-offset: 0px;
+    transform: translateY(var(--gr-scroll-offset));
+    will-change: transform;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .gr-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(calc(var(--gr-scroll-offset) - 5px));
     box-shadow: var(--shadow-md);
     border-color: rgba(var(--color-accent-rgb), 0.28);
 }
@@ -981,6 +1013,15 @@ footer p {
         padding: 0.45rem 0.6rem;
     }
 
+    .logo-mark-text {
+        font-size: 1.72rem;
+    }
+
+    nav.brand-revealed .logo-mark-text {
+        max-width: 5.5ch;
+        margin-left: 0.38rem;
+    }
+
     .nav-links {
         display: none;
     }
@@ -1025,6 +1066,15 @@ footer p {
         font-size: clamp(2.5rem, 14vw, 3.8rem);
     }
 
+    .logo-mark-text {
+        font-size: 1.46rem;
+    }
+
+    nav.brand-revealed .logo-mark-text {
+        max-width: 4.8ch;
+        margin-left: 0.3rem;
+    }
+
     .btn {
         width: 100%;
     }
@@ -1061,5 +1111,11 @@ footer p {
 
     footer {
         padding: 1.6rem 0 2.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-mark-text {
+        transition: none;
     }
 }

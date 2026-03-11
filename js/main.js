@@ -80,13 +80,16 @@ if (pageSectionLinks.length > 0) {
 // Nav scroll effect.
 const nav = document.getElementById('nav');
 if (nav) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
+    const isHomePage = Boolean(document.querySelector('.hero'));
+
+    const updateNavState = () => {
+        nav.classList.toggle('scrolled', window.scrollY > 100);
+        nav.classList.toggle('brand-revealed', !isHomePage || window.scrollY > 40);
+    };
+
+    window.addEventListener('scroll', updateNavState, { passive: true });
+    window.addEventListener('load', updateNavState);
+    updateNavState();
 }
 
 // Intersection Observer for fade-in animations.
@@ -105,10 +108,47 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document
-    .querySelectorAll('.problem-card, .flow-step, .step, .gr-card, .team-card')
+    .querySelectorAll('.problem-card, .flow-step, .step, .team-card')
     .forEach((el) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+
+// Scroll-driven vertical dynamics for research cards.
+const researchCardsContainer = document.querySelector('.gr-cards-container');
+if (researchCardsContainer) {
+    const researchCards = Array.from(researchCardsContainer.querySelectorAll('.gr-card'));
+    let researchRaf = null;
+
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+    const updateResearchCardMotion = () => {
+        const containerRect = researchCardsContainer.getBoundingClientRect();
+        const containerCenterX = containerRect.left + (containerRect.width / 2);
+        const maxDistance = (containerRect.width / 2) + ((researchCards[0]?.getBoundingClientRect().width || 0) / 2);
+
+        researchCards.forEach((card) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenterX = cardRect.left + (cardRect.width / 2);
+            const normalizedDistance = clamp(Math.abs(cardCenterX - containerCenterX) / maxDistance, 0, 1);
+            const verticalOffset = Math.round(Math.pow(normalizedDistance, 1.35) * 26);
+            card.style.setProperty('--gr-scroll-offset', `${verticalOffset}px`);
+        });
+
+        researchRaf = null;
+    };
+
+    const scheduleResearchMotionUpdate = () => {
+        if (researchRaf !== null) {
+            return;
+        }
+        researchRaf = window.requestAnimationFrame(updateResearchCardMotion);
+    };
+
+    researchCardsContainer.addEventListener('scroll', scheduleResearchMotionUpdate, { passive: true });
+    window.addEventListener('resize', scheduleResearchMotionUpdate);
+    window.addEventListener('load', scheduleResearchMotionUpdate);
+    scheduleResearchMotionUpdate();
+}
