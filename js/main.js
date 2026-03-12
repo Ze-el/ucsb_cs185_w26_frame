@@ -116,25 +116,56 @@ document
         observer.observe(el);
     });
 
-// Scroll-driven vertical dynamics for research cards.
+// Scroll-driven horizontal dynamics for research cards.
 const researchCardsContainer = document.querySelector('.gr-cards-container');
 if (researchCardsContainer) {
     const researchCards = Array.from(researchCardsContainer.querySelectorAll('.gr-card'));
     let researchRaf = null;
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+    const resetResearchCardMotion = () => {
+        researchCards.forEach((card) => {
+            card.style.setProperty('--gr-scroll-y', '0px');
+            card.style.setProperty('--gr-scroll-tilt', '0deg');
+            card.style.setProperty('--gr-scroll-scale', '1');
+            card.style.setProperty('--gr-scroll-opacity', '1');
+            card.style.setProperty('--gr-scroll-blur', '0px');
+            card.style.setProperty('--gr-focus', '0');
+        });
+    };
 
     const updateResearchCardMotion = () => {
+        if (reducedMotionQuery.matches) {
+            resetResearchCardMotion();
+            researchRaf = null;
+            return;
+        }
+
         const containerRect = researchCardsContainer.getBoundingClientRect();
         const containerCenterX = containerRect.left + (containerRect.width / 2);
-        const maxDistance = (containerRect.width / 2) + ((researchCards[0]?.getBoundingClientRect().width || 0) / 2);
+        const maxDistance = Math.max((containerRect.width / 2) + ((researchCards[0]?.getBoundingClientRect().width || 0) / 2), 1);
 
         researchCards.forEach((card) => {
             const cardRect = card.getBoundingClientRect();
             const cardCenterX = cardRect.left + (cardRect.width / 2);
-            const normalizedDistance = clamp(Math.abs(cardCenterX - containerCenterX) / maxDistance, 0, 1);
-            const verticalOffset = Math.round(Math.pow(normalizedDistance, 1.35) * 26);
-            card.style.setProperty('--gr-scroll-offset', `${verticalOffset}px`);
+            const normalizedOffset = clamp((cardCenterX - containerCenterX) / maxDistance, -1, 1);
+            const distance = Math.abs(normalizedOffset);
+            const edgeFactor = clamp((distance - 0.9) / 0.1, 0, 1);
+
+            const verticalOffset = Math.round(Math.pow(edgeFactor, 1.2) * 18);
+            const tilt = (normalizedOffset * -8.5 * edgeFactor).toFixed(2);
+            const scale = (1 - (edgeFactor * 0.11)).toFixed(3);
+            const opacity = (1 - (edgeFactor * 0.18)).toFixed(3);
+            const blur = (edgeFactor * 0.28).toFixed(2);
+            const focus = (1 - edgeFactor).toFixed(3);
+
+            card.style.setProperty('--gr-scroll-y', `${verticalOffset}px`);
+            card.style.setProperty('--gr-scroll-tilt', `${tilt}deg`);
+            card.style.setProperty('--gr-scroll-scale', scale);
+            card.style.setProperty('--gr-scroll-opacity', opacity);
+            card.style.setProperty('--gr-scroll-blur', `${blur}px`);
+            card.style.setProperty('--gr-focus', focus);
         });
 
         researchRaf = null;
@@ -150,5 +181,10 @@ if (researchCardsContainer) {
     researchCardsContainer.addEventListener('scroll', scheduleResearchMotionUpdate, { passive: true });
     window.addEventListener('resize', scheduleResearchMotionUpdate);
     window.addEventListener('load', scheduleResearchMotionUpdate);
+    if (typeof reducedMotionQuery.addEventListener === 'function') {
+        reducedMotionQuery.addEventListener('change', scheduleResearchMotionUpdate);
+    } else if (typeof reducedMotionQuery.addListener === 'function') {
+        reducedMotionQuery.addListener(scheduleResearchMotionUpdate);
+    }
     scheduleResearchMotionUpdate();
 }
