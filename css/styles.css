@@ -141,6 +141,7 @@ nav.scrolled .nav-content {
 .gr-card,
 .team-card,
 .demo-frame-card,
+.gr-deck-card,
 .gr4-video-card,
 footer .container {
     position: relative;
@@ -155,6 +156,7 @@ footer .container {
 .gr-card::before,
 .team-card::before,
 .demo-frame-card::before,
+.gr-deck-card::before,
 .gr4-video-card::before,
 footer .container::before {
     content: "";
@@ -176,6 +178,7 @@ footer .container::before {
 .gr-card::after,
 .team-card::after,
 .demo-frame-card::after,
+.gr-deck-card::after,
 .gr4-video-card::after,
 footer .container::after {
     content: "";
@@ -200,6 +203,7 @@ footer .container::after {
 .gr-card:hover::after,
 .team-card:hover::after,
 .demo-frame-card:hover::after,
+.gr-deck-card:hover::after,
 .gr4-video-card:hover::after,
 footer .container:hover::after {
     opacity: 0.72;
@@ -213,6 +217,7 @@ footer .container:hover::after {
 .gr-card > *,
 .team-card > *,
 .demo-frame-card > *,
+.gr-deck-card > *,
 .gr4-video-card > *,
 footer .container > * {
     position: relative;
@@ -226,6 +231,7 @@ footer .container > * {
     padding: 0.2rem 0.55rem;
     white-space: nowrap;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .logo img {
