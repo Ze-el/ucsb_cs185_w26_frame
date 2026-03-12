@@ -1,0 +1,10 @@
+127.0.0.1 - - [12/Mar/2026 23:00:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET /css/app_colors.css HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET /css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET /images/frame-logo/frame-logo-navy.png HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET /images/app-screens/dashboard.png HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET /images/people/gavin.png HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET /images/people/rachit.png HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET /images/people/zeel.png HTTP/1.1" 200 -
+127.0.0.1 - - [12/Mar/2026 23:00:30] "GET /js/main.js HTTP/1.1" 200 -
