@@ -26,14 +26,34 @@ const setActiveNavLink = (activeLink) => {
 
 const getUrlPath = (href) => new URL(href, window.location.href).pathname.replace(/\/+$/, '');
 const getUrlHash = (href) => new URL(href, window.location.href).hash;
+const getActiveHashesForLink = (link) => {
+    const configuredHashes = (link.dataset.activeSections || '')
+        .split(',')
+        .map((hash) => hash.trim())
+        .filter((hash) => hash.startsWith('#'));
+
+    if (configuredHashes.length > 0) {
+        return configuredHashes;
+    }
+
+    const fallbackHash = getUrlHash(link.getAttribute('href') || '');
+    return fallbackHash ? [fallbackHash] : [];
+};
 
 const pageSectionLinks = navLinks
-    .map((link) => ({
-        link,
-        path: getUrlPath(link.getAttribute('href') || ''),
-        hash: getUrlHash(link.getAttribute('href') || '')
-    }))
-    .filter((item) => item.path === currentPagePath && item.hash.startsWith('#') && document.querySelector(item.hash));
+    .flatMap((link) => {
+        const path = getUrlPath(link.getAttribute('href') || '');
+        if (path !== currentPagePath) {
+            return [];
+        }
+
+        return getActiveHashesForLink(link).map((hash) => ({
+            link,
+            path,
+            hash
+        }));
+    })
+    .filter((item) => document.querySelector(item.hash));
 
 if (pageSectionLinks.length > 0) {
     const observedSections = pageSectionLinks
@@ -90,6 +110,48 @@ if (nav) {
     window.addEventListener('scroll', updateNavState, { passive: true });
     window.addEventListener('load', updateNavState);
     updateNavState();
+}
+
+// Mobile nav toggle.
+const navToggle = document.querySelector('.nav-toggle');
+const navLinksList = document.querySelector('.nav-links');
+if (nav && navToggle && navLinksList) {
+    const closeNavMenu = () => {
+        nav.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    navLinksList.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeNavMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!nav.classList.contains('nav-open')) {
+            return;
+        }
+
+        const clickedInsideNav = nav.contains(event.target);
+        if (!clickedInsideNav) {
+            closeNavMenu();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 920) {
+            closeNavMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeNavMenu();
+        }
+    });
 }
 
 // Intersection Observer for fade-in animations.

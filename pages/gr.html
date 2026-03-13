@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frame Demo</title>
+    <title>Frame GR Journey</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/subpages.css">
 </head>
-<body class="demo-page">
+<body class="gr-hub-page">
     <nav id="nav">
         <div class="nav-content">
             <a href="../index.html" class="logo" aria-label="Back to home">
@@ -31,26 +31,21 @@
         </div>
     </nav>
 
-    <main class="demo-main">
-        <div class="demo-layout">
-            <header class="demo-header">
-                <div class="demo-kicker">FRAME PROTOTYPE</div>
-                <h1>Interactive Demo</h1>
-                <p>Explore the Figma prototype directly below.</p>
+    <main class="gr-hub-main">
+        <div class="gr-hub-layout">
+            <header class="gr-hub-header">
+                <div class="gr-hub-kicker">FRAME PROCESS MILESTONES</div>
+                <h1>GR1 to GR10 in one continuous journey</h1>
+                <p>Browse each milestone in order, open deliverables directly, and jump to any GR section instantly.</p>
+                <nav class="gr-quick-jump" aria-label="Jump to GR section" id="grQuickJump"></nav>
             </header>
 
-            <section class="demo-frame-card" aria-label="Frame demo prototype">
-                <iframe
-                    width="800"
-                    height="450"
-                    src="https://embed.figma.com/proto/p0mzx0YUVG7MJGQxBUtRzJ/Photography-Event-App--Community-?node-id=2006-710&starting-point-node-id=2006%3A710&embed-host=share"
-                    allowfullscreen
-                    title="Frame Figma Prototype">
-                </iframe>
-            </section>
+            <section class="gr-timeline" id="grTimeline" aria-label="GR timeline"></section>
         </div>
     </main>
 
+    <script src="../js/gr-data.js"></script>
+    <script src="../js/gr-page.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

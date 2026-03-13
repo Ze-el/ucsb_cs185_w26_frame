@@ -17,10 +17,13 @@
                 <img src="assets/images/frame-logo/frame-logo-navy.png" alt="Frame Logo">
                 <span class="logo-mark-text" aria-hidden="true">FRAME</span>
             </a>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#why">The Why?</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#research">GR1–GR7</a></li>
+                <li><a href="#process" data-active-sections="#process,#how-it-works">Process</a></li>
+                <li><a href="#research">GR Journey</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#demo">Demo</a></li>
             </ul>
@@ -110,7 +113,7 @@
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works">
+    <section id="how-it-works" class="how-it-works">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">How it works</h2>
@@ -170,7 +173,7 @@
             </div>
             <div class="gr-cards-container">
                 <!-- GR1 -->
-                <a href="assets/pdfs/Slide%20Decks/frame-gr1.pdf" target="_blank" class="gr-link">
+                <a href="pages/gr.html#gr1" class="gr-link">
                     <div class="gr-card">
                         <span class="gr-number">GR1</span>
                         <h3>Needfinding</h3>
@@ -198,7 +201,7 @@
 
 
                 <!-- GR2 -->
-                <a href="assets/pdfs/Slide%20Decks/frame-gr2.pdf" target="_blank" class="gr-link">
+                <a href="pages/gr.html#gr2" class="gr-link">
                     <div class="gr-card">
                         <span class="gr-number">GR2</span>
                         <h3>POVs, HMWs &amp; Experience Prototypes</h3>
@@ -225,32 +228,34 @@
                 </a>
 
                 <!-- GR3 -->
-                <div class="gr-card">
-                    <span class="gr-number">GR3</span>
-                    <h3>Project Website</h3>
-                    <p>
-                        Build and maintain a project website for an external audience that clearly
-                        presents the project and progress.
-                    </p>
-
-                    <div class="insight">
-                        <div class="insight-label">SCOPE</div>
+                <a href="pages/gr.html#gr3" class="gr-link">
+                    <div class="gr-card gr-card-dull">
+                        <span class="gr-number">GR3</span>
+                        <h3>Project Website</h3>
                         <p>
-                            Link key deliverables and keep the site polished with final artifact
-                            links.
+                            Build and maintain a project website for an external audience that clearly
+                            presents the project and progress.
                         </p>
-                    </div>
 
-                    <div class="outcome">
-                        <div class="outcome-label">DELIVERABLE</div>
-                        <p>
-                            Project website hosted on github.io.
-                        </p>
+                        <div class="insight">
+                            <div class="insight-label">SCOPE</div>
+                            <p>
+                                Link key deliverables and keep the site polished with final artifact
+                                links.
+                            </p>
+                        </div>
+
+                        <div class="outcome">
+                            <div class="outcome-label">DELIVERABLE</div>
+                            <p>
+                                Project website hosted on github.io.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
 
                 <!-- GR4 -->
-                <a href="pages/gr4.html" class="gr-link">
+                <a href="pages/gr.html#gr4" class="gr-link">
                     <div class="gr-card">
                         <span class="gr-number">GR4</span>
                         <h3>Concept Video</h3>
@@ -276,7 +281,7 @@
                 </a>
                 
                 <!-- GR5 -->
-                <a href="pages/gr5.html" class="gr-link">
+                <a href="pages/gr.html#gr5" class="gr-link">
                     <div class="gr-card">
                         <span class="gr-number">GR5</span>
                         <h3>Sketching, Low-Fi &amp; User Testing</h3>
@@ -301,7 +306,7 @@
                 </a>
 
                 <!-- GR6 -->
-                <a href="pages/gr6.html" class="gr-link">
+                <a href="pages/gr.html#gr6" class="gr-link">
                     <div class="gr-card">
                         <span class="gr-number">GR6</span>
                         <h3>Medium-Fi Figma Prototype</h3>
@@ -324,88 +329,96 @@
 
                 <!-- GR7 -->
                 <!-- TODO: Please add that reports we got for GR7 from other teams is incorporated in GR slides. -->
-                <div class="gr-card gr-card-dull">
-                    <span class="gr-number">GR7</span>
-                    <h3>Heuristic Evaluation (Individual)</h3>
-                    <p>
-                        Conduct a heuristic evaluation of other teams' GR6 medium-fi prototypes.
-                    </p>
-                    <div class="insight">
-                        <div class="insight-label">SCOPE</div>
+                <a href="pages/gr.html#gr7" class="gr-link">
+                    <div class="gr-card gr-card-dull">
+                        <span class="gr-number">GR7</span>
+                        <h3>Heuristic Evaluation (Individual)</h3>
                         <p>
-                            Identify usability issues, rate severity, and provide clear
-                            recommendations.
+                            Conduct a heuristic evaluation of other teams' GR6 medium-fi prototypes.
                         </p>
+                        <div class="insight">
+                            <div class="insight-label">SCOPE</div>
+                            <p>
+                                Identify usability issues, rate severity, and provide clear
+                                recommendations.
+                            </p>
+                        </div>
+                        <div class="outcome">
+                            <div class="outcome-label">DELIVERABLE</div>
+                            <p>Evaluation spreadsheet as listed in GR7.</p>
+                        </div>
                     </div>
-                    <div class="outcome">
-                        <div class="outcome-label">DELIVERABLE</div>
-                        <p>Evaluation spreadsheet as listed in GR7.</p>
-                    </div>
-                </div>
+                </a>
 
                 <!-- GR8 -->
-                <div class="gr-card">
-                    <span class="gr-number">GR8</span>
-                    <h3>Hi-Fi Figma Prototype</h3>
-                    <p>
-                        Create a high-fi Figma prototype that incorporates improvements from GR7
-                        heuristic evaluation feedback.
-                    </p>
-                    <div class="insight">
-                        <div class="insight-label">SCOPE</div>
+                <a href="pages/gr.html#gr8" class="gr-link">
+                    <div class="gr-card">
+                        <span class="gr-number">GR8</span>
+                        <h3>Hi-Fi Figma Prototype</h3>
                         <p>
-                            Refine visual design, interaction detail, and overall usability in the
-                            updated prototype.
+                            Create a high-fi Figma prototype that incorporates improvements from GR7
+                            heuristic evaluation feedback.
                         </p>
+                        <div class="insight">
+                            <div class="insight-label">SCOPE</div>
+                            <p>
+                                Refine visual design, interaction detail, and overall usability in the
+                                updated prototype.
+                            </p>
+                        </div>
+                        <div class="outcome">
+                            <div class="outcome-label">DELIVERABLE</div>
+                            <p>Updated high-fi Figma prototype.</p>
+                        </div>
                     </div>
-                    <div class="outcome">
-                        <div class="outcome-label">DELIVERABLE</div>
-                        <p>Updated high-fi Figma prototype.</p>
-                    </div>
-                </div>
+                </a>
 
                 <!-- GR9 -->
-                <div class="gr-card">
-                    <span class="gr-number">GR9</span>
-                    <h3>Poster, Pitch &amp; Video</h3>
-                    <p>
-                        Prepare final presentation materials centered on the GR8 hi-fi prototype.
-                    </p>
-                    <div class="insight">
-                        <div class="insight-label">SCOPE</div>
+                <a href="pages/gr.html#gr9" class="gr-link">
+                    <div class="gr-card">
+                        <span class="gr-number">GR9</span>
+                        <h3>Poster, Pitch &amp; Video</h3>
                         <p>
-                            Final presentation signup, 5-minute team pitch plus 1.5-minute Q&amp;A,
-                            and aligned project assets.
+                            Prepare final presentation materials centered on the GR8 hi-fi prototype.
                         </p>
+                        <div class="insight">
+                            <div class="insight-label">SCOPE</div>
+                            <p>
+                                Final presentation signup, 5-minute team pitch plus 1.5-minute Q&amp;A,
+                                and aligned project assets.
+                            </p>
+                        </div>
+                        <div class="outcome">
+                            <div class="outcome-label">DELIVERABLE</div>
+                            <p>
+                                One pitch slide, one poster slide, and a demo video uploaded to the
+                                team Drive folder.
+                            </p>
+                        </div>
                     </div>
-                    <div class="outcome">
-                        <div class="outcome-label">DELIVERABLE</div>
-                        <p>
-                            One pitch slide, one poster slide, and a demo video uploaded to the
-                            team Drive folder.
-                        </p>
-                    </div>
-                </div>
+                </a>
 
                 <!-- GR10 -->
-                <div class="gr-card">
-                    <span class="gr-number">GR10</span>
-                    <h3>Final Report</h3>
-                    <p>
-                        Write the final project narrative that covers work across all GRs.
-                    </p>
-                    <div class="insight">
-                        <div class="insight-label">SCOPE</div>
+                <a href="pages/gr.html#gr10" class="gr-link">
+                    <div class="gr-card">
+                        <span class="gr-number">GR10</span>
+                        <h3>Final Report</h3>
                         <p>
-                            Document the full process, key decisions, iterations, and final
-                            outcomes in one cohesive report.
+                            Write the final project narrative that covers work across all GRs.
                         </p>
+                        <div class="insight">
+                            <div class="insight-label">SCOPE</div>
+                            <p>
+                                Document the full process, key decisions, iterations, and final
+                                outcomes in one cohesive report.
+                            </p>
+                        </div>
+                        <div class="outcome">
+                            <div class="outcome-label">DELIVERABLE</div>
+                            <p>Final report submitted as a Google Doc.</p>
+                        </div>
                     </div>
-                    <div class="outcome">
-                        <div class="outcome-label">DELIVERABLE</div>
-                        <p>Final report submitted as a Google Doc.</p>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>

@@ -274,6 +274,74 @@ nav.brand-revealed .logo-mark-text {
     align-items: center;
 }
 
+.nav-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--color-accent-rgb), 0.24);
+    background: rgba(255, 255, 255, 0.66);
+    color: var(--color-accent-strong);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.84);
+    border-color: rgba(var(--color-accent-rgb), 0.34);
+}
+
+.nav-toggle:active {
+    transform: scale(0.96);
+}
+
+.nav-toggle-bars {
+    position: relative;
+    width: 16px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: background var(--transition-fast);
+}
+
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform var(--transition-fast), top var(--transition-fast), bottom var(--transition-fast);
+}
+
+.nav-toggle-bars::before {
+    top: -5px;
+}
+
+.nav-toggle-bars::after {
+    bottom: -5px;
+}
+
+nav.nav-open .nav-toggle-bars {
+    background: transparent;
+}
+
+nav.nav-open .nav-toggle-bars::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+nav.nav-open .nav-toggle-bars::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
 .nav-links a {
     color: var(--color-text-dim);
     text-decoration: none;
@@ -1165,6 +1233,8 @@ footer p {
 
     .nav-content {
         padding: 0.45rem 0.6rem;
+        position: relative;
+        justify-content: space-between;
     }
 
     .logo-mark-text {
@@ -1176,8 +1246,43 @@ footer p {
         margin-left: 0.38rem;
     }
 
+    .nav-toggle {
+        display: inline-flex;
+    }
+
     .nav-links {
-        display: none;
+        display: flex;
+        position: absolute;
+        top: calc(100% + 0.55rem);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        padding: 0.45rem;
+        border-radius: 22px;
+        border: 1px solid var(--glass-stroke);
+        background: var(--glass-bg-strong);
+        box-shadow: var(--shadow-soft);
+        backdrop-filter: blur(24px) saturate(170%);
+        -webkit-backdrop-filter: blur(24px) saturate(170%);
+        transform-origin: top center;
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+        pointer-events: none;
+        transition: opacity var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: left;
+        padding: 0.7rem 0.9rem;
+    }
+
+    nav.nav-open .nav-links {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
     }
 
     .hero {
