@@ -61,8 +61,8 @@ Brand wordmark treatment:
 ## 5) Logo Assets
 
 Current logo files:
-- `images/frame-logo/frame-logo-navy.png` (default on light backgrounds)
-- `images/frame-logo/frame-logo-white.png` (use on dark or high-contrast backgrounds)
+- `assets/images/frame-logo/frame-logo-navy.png` (default on light backgrounds)
+- `assets/images/frame-logo/frame-logo-white.png` (use on dark or high-contrast backgrounds)
 
 Usage notes:
 - Maintain clear space around logo equal to at least logo icon height / 2.

@@ -40,7 +40,7 @@ https://`<your-username>`{=html}.github.io/ucsb_cs185_w26_frame/
 │   └── subpages.css \# Shared demo/GR4 page styling\
 ├── assets/design/design-elements.md \# Brand/design reference file\
 ├── pages/ \# Additional website pages\
-├── images/ \# Image assets\
+├── assets/images/ \# Image assets\
 └── README.md \# Project documentation
 
 ------------------------------------------------------------------------
