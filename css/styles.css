@@ -31,6 +31,10 @@
 
     --transition-fast: 180ms ease;
     --transition-medium: 260ms ease;
+
+    --section-space: clamp(4.8rem, 8vw, 6rem);
+    --section-content-gap: clamp(1.2rem, 2.6vw, 1.9rem);
+    --card-padding: clamp(1.25rem, 2vw, 1.8rem);
 }
 
 * {
@@ -583,12 +587,12 @@ nav.nav-open .nav-toggle-bars::after {
 
 /* Shared Section Typography */
 section {
-    padding: var(--spacing-xl) 0;
+    padding: var(--section-space) 0;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: var(--section-content-gap);
 }
 
 .section-title {
@@ -619,7 +623,7 @@ section {
 .problem-cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.35rem;
+    gap: var(--section-content-gap);
 }
 
 .problem-card,
@@ -635,7 +639,7 @@ section {
 }
 
 .problem-card {
-    padding: 1.8rem;
+    padding: var(--card-padding);
     border-radius: var(--radius-lg);
     transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
 }
@@ -682,9 +686,8 @@ section {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    gap: 0.8rem;
+    gap: var(--section-content-gap);
     flex-wrap: wrap;
-    margin-top: 0.8rem;
 }
 
 .flow-step {
@@ -693,7 +696,7 @@ section {
     max-width: 230px;
     flex: 1;
     border-radius: var(--radius-md);
-    padding: 1.2rem 1rem;
+    padding: var(--card-padding);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
@@ -736,15 +739,15 @@ section {
 /* How It Works */
 .steps-container {
     display: grid;
-    gap: 1.35rem;
+    gap: var(--section-content-gap);
 }
 
 .step {
     border-radius: var(--radius-lg);
-    padding: 1.6rem;
+    padding: var(--card-padding);
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
-    gap: 1.5rem;
+    gap: var(--section-content-gap);
     align-items: center;
 }
 
@@ -810,16 +813,12 @@ section {
 }
 
 /* Research */
-.gr-section {
-    padding-top: 5.4rem;
-}
-
 .gr-cards-container {
     --gr-card-width: min(430px, 82vw);
     position: relative;
     display: flex;
     align-items: stretch;
-    gap: 1rem;
+    gap: var(--section-content-gap);
     overflow-x: auto;
     overflow-y: hidden;
     padding: 0.55rem clamp(0.2rem, 4vw, 3.6rem) 1.3rem;
@@ -853,7 +852,7 @@ section {
     display: flex;
     flex-direction: column;
     border-radius: var(--radius-lg);
-    padding: 1.8rem;
+    padding: var(--card-padding);
     --gr-focus: 0;
     --gr-scroll-y: 0px;
     --gr-scroll-tilt: 0deg;
@@ -986,7 +985,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     align-items: stretch;
-    gap: 1.2rem;
+    gap: var(--section-content-gap);
 }
 
 .team-link {
@@ -1002,7 +1001,7 @@ section {
 .team-card {
     height: 100%;
     border-radius: var(--radius-md);
-    padding: 1.6rem 1.3rem;
+    padding: var(--card-padding);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1433,7 +1432,7 @@ footer p {
     }
 
     section {
-        padding: 4.4rem 0;
+        padding: clamp(3.8rem, 10vw, 4.4rem) 0;
     }
 
     .hero {
