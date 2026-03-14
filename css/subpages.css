@@ -428,7 +428,7 @@
     padding: 0;
     text-align: left;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 0.75rem;
     align-items: start;
 }
@@ -453,12 +453,16 @@
     font-weight: 700;
     color: var(--color-accent-strong);
     background: rgba(var(--color-accent-rgb), 0.09);
+    order: 2;
+    justify-self: end;
+    margin-top: 0.2rem;
 }
 
 .gr-toggle-copy {
     display: grid;
     gap: 0.22rem;
     min-width: 0;
+    order: 1;
 }
 
 .gr-toggle-title {
@@ -492,6 +496,7 @@
     border-bottom: 2px solid rgba(var(--color-accent-strong-rgb), 0.74);
     transform: rotate(45deg);
     transition: transform var(--transition-fast);
+    order: 3;
 }
 
 .gr-milestone-toggle[aria-expanded="true"] .gr-toggle-icon {
@@ -640,6 +645,15 @@
 
 .gr-media-card-video iframe {
     aspect-ratio: 16 / 9;
+}
+
+.gr-media-card-video video {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid rgba(var(--color-accent-rgb), 0.16);
+    background: #000;
+    aspect-ratio: 16 / 9;
+    display: block;
 }
 
 .gr-media-card-figma iframe {

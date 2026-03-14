@@ -26,40 +26,45 @@
         }
 
         if (isVideoResource) {
-            const streamUrl = escapeHtml(resource.streamUrl || resource.url);
-            const downloadUrl = escapeHtml(resource.downloadUrl || resource.url);
+            const streamUrl = resource.streamUrl ? escapeHtml(resource.streamUrl) : '';
+            const downloadUrl = resource.downloadUrl ? escapeHtml(resource.downloadUrl) : escapeHtml(resource.url);
+            const hasDownload = Boolean(downloadUrl);
+            const hasStream = Boolean(streamUrl);
             return `
                 <li class="gr-resource-item gr-resource-item-video">
                     <div class="resource-link resource-link-video">
                         <span class="resource-main">${label}</span>
                         <span class="resource-actions">
-                            <a
-                                href="${downloadUrl}"
-                                target="_blank"
-                                rel="noopener"
-                                class="resource-icon-link"
-                                aria-label="Download ${label}"
-                                title="Download video"
-                            >
-                                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-                                    <path d="M10 2.2a1 1 0 0 1 1 1v7.03l2.06-2.06a1 1 0 0 1 1.41 1.42l-3.77 3.76a1 1 0 0 1-1.4 0L5.53 9.6a1 1 0 0 1 1.42-1.42L9 10.23V3.2a1 1 0 0 1 1-1Z"></path>
-                                    <path d="M4.2 14.1a1 1 0 0 1 1 1v1.22h9.6V15.1a1 1 0 1 1 2 0v2.22a1 1 0 0 1-1 1H4.2a1 1 0 0 1-1-1V15.1a1 1 0 0 1 1-1Z"></path>
-                                </svg>
-                            </a>
-                            <a
-                                href="${streamUrl}"
-                                target="_blank"
-                                rel="noopener"
-                                class="resource-icon-link"
-                                aria-label="Open ${label} on Vimeo"
-                                title="Open on Vimeo"
-                            >
-                                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-                                    <path d="M3.6 6.2v4.1a2.3 2.3 0 0 0 2.3 2.3h1.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M16.4 6.2v4.1a2.3 2.3 0 0 1-2.3 2.3H13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M8.2 10.5h3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-                                </svg>
-                            </a>
+                            ${hasDownload ? `
+                                <a
+                                    href="${downloadUrl}"
+                                    target="_blank"
+                                    rel="noopener"
+                                    download
+                                    class="resource-icon-link"
+                                    aria-label="Download ${label}"
+                                    title="Download video"
+                                >
+                                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                        <path d="M10 2.2a1 1 0 0 1 1 1v7.03l2.06-2.06a1 1 0 0 1 1.41 1.42l-3.77 3.76a1 1 0 0 1-1.4 0L5.53 9.6a1 1 0 0 1 1.42-1.42L9 10.23V3.2a1 1 0 0 1 1-1Z"></path>
+                                        <path d="M4.2 14.1a1 1 0 0 1 1 1v1.22h9.6V15.1a1 1 0 1 1 2 0v2.22a1 1 0 0 1-1 1H4.2a1 1 0 0 1-1-1V15.1a1 1 0 0 1 1-1Z"></path>
+                                    </svg>
+                                </a>
+                            ` : ''}
+                            ${hasStream ? `
+                                <a
+                                    href="${streamUrl}"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="resource-icon-link"
+                                    aria-label="Open ${label} on Vimeo"
+                                    title="Open on Vimeo"
+                                >
+                                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                        <path d="M6.2 13.8a.9.9 0 0 1 0-1.27l6.02-6.03H8.1a.9.9 0 0 1 0-1.8h6.3a.9.9 0 0 1 .9.9v6.3a.9.9 0 1 1-1.8 0V7.76l-6.03 6.02a.9.9 0 0 1-1.27 0Z"></path>
+                                    </svg>
+                                </a>
+                            ` : ''}
                         </span>
                     </div>
                 </li>
@@ -97,6 +102,20 @@
             }
 
             if (item.type === 'video') {
+                const isLocalVideo = /\.(mp4|webm|ogg|mov)(\?|$)/i.test(item.embedUrl || '');
+
+                if (isLocalVideo) {
+                    return `
+                        <figure class="gr-media-card gr-media-card-video">
+                            <video controls preload="metadata" playsinline title="${title}">
+                                <source src="${item.embedUrl}">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption>${title}</figcaption>
+                        </figure>
+                    `;
+                }
+
                 return `
                     <figure class="gr-media-card gr-media-card-video">
                         <iframe src="${item.embedUrl}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${title}"></iframe>

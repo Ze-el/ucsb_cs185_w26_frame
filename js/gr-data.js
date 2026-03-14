@@ -40,9 +40,9 @@ window.GR_CONTENT = [
         status: 'coming-soon',
         resources: [
             {
-                label: 'Content package',
-                type: 'Pending',
-                url: null
+                label: 'Source Code',
+                type: 'Link',
+                url: 'https://github.com/Ze-el/ucsb_cs185_w26_frame'
             }
         ],
         media: []
@@ -63,16 +63,16 @@ window.GR_CONTENT = [
             {
                 label: 'Concept Video',
                 type: 'Video',
-                url: 'https://vimeo.com/1162757315',
+                url: '../assets/videos/gr4-concept.mp4',
                 streamUrl: 'https://vimeo.com/1162757315',
-                downloadUrl: 'https://vimeo.com/1162757315/download'
+                downloadUrl: '../assets/videos/gr4-concept.mp4'
             }
         ],
         media: [
             {
                 type: 'video',
                 title: 'GR4 Concept Video',
-                embedUrl: 'https://player.vimeo.com/video/1162757315'
+                embedUrl: '../assets/videos/gr4-concept.mp4'
             }
         ]
     },
@@ -130,22 +130,6 @@ window.GR_CONTENT = [
         ]
     },
     {
-        id: 'gr7',
-        number: 'GR7',
-        title: 'Heuristic Evaluation',
-        subtitle: 'Cross-team usability analysis',
-        summary: 'Evaluated peer prototypes against heuristics, rated severity, and used findings to prioritize improvements.',
-        status: 'coming-soon',
-        resources: [
-            {
-                label: 'Evaluation artifacts',
-                type: 'Pending',
-                url: null
-            }
-        ],
-        media: []
-    },
-    {
         id: 'gr8',
         number: 'GR8',
         title: 'High-Fi MedFi Prototype',
@@ -155,8 +139,8 @@ window.GR_CONTENT = [
         resources: [
             {
                 label: 'Slides',
-                type: 'Pending',
-                url: null
+                type: 'PDF',
+                url: '../assets/pdfs/Slide%20Decks/frame-gr8.pdf'
             },
             {
                 label: 'Figma (HiFi)',
@@ -182,26 +166,34 @@ window.GR_CONTENT = [
         resources: [
             {
                 label: 'Pitch Background',
-                type: 'Pending',
-                url: null
+                type: 'PDF',
+                url: '../assets/pdfs/gr9-pitch.pdf'
             },
             {
                 label: 'Pitch Script',
-                type: 'Pending',
-                url: null
+                type: 'PDF',
+                url: '../assets/pdfs/gr9-script.pdf'
             },
             {
                 label: 'Demo Run Through',
-                type: 'Pending',
-                url: null
+                type: 'Video',
+                url: '../assets/videos/gr9-demo.mp4',
+                streamUrl: 'https://vimeo.com/1172263694?share=copy&fl=sv&fe=ci',
+                downloadUrl: '../assets/videos/gr9-demo.mp4'
             },
             {
                 label: 'Poster',
-                type: 'Pending',
-                url: null
+                type: 'PDF',
+                url: '../assets/pdfs/gr9-poster.pdf'
             }
         ],
-        media: []
+        media: [
+            {
+                type: 'video',
+                title: 'GR9 Demo Run Through',
+                embedUrl: '../assets/videos/gr9-demo.mp4'
+            }
+        ]
     },
     {
         id: 'gr10',
