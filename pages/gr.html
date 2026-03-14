@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frame GR Journey</title>
+    <title>Frame Research Journey</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,7 +24,31 @@
             <ul class="nav-links">
                 <li><a href="../index.html#why">The Why?</a></li>
                 <li><a href="../index.html#process">Process</a></li>
-                <li><a href="gr.html">GR Journey</a></li>
+                <li class="nav-item nav-item-has-submenu">
+                    <div class="nav-parent-row">
+                        <a href="gr.html">Research Journey</a>
+                        <button
+                            type="button"
+                            class="nav-submenu-toggle"
+                            aria-label="Toggle Research Journey milestones"
+                            aria-expanded="false"
+                            aria-controls="researchMenuPanel"
+                        >
+                            <span class="nav-submenu-caret" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="nav-submenu" id="researchMenuPanel" role="group" aria-label="Research Journey milestones" hidden>
+                        <a href="gr.html#gr1" class="nav-submenu-link">GR1</a>
+                        <a href="gr.html#gr2" class="nav-submenu-link">GR2</a>
+                        <a href="gr.html#gr3" class="nav-submenu-link">GR3</a>
+                        <a href="gr.html#gr4" class="nav-submenu-link">GR4</a>
+                        <a href="gr.html#gr5" class="nav-submenu-link">GR5</a>
+                        <a href="gr.html#gr6" class="nav-submenu-link">GR6</a>
+                        <a href="gr.html#gr8" class="nav-submenu-link">GR8</a>
+                        <a href="gr.html#gr9" class="nav-submenu-link">GR9</a>
+                        <a href="gr.html#gr10" class="nav-submenu-link">GR10</a>
+                    </div>
+                </li>
                 <li><a href="../index.html#team">Team</a></li>
                 <li><a href="demo.html">Demo</a></li>
             </ul>
@@ -37,7 +61,6 @@
                 <div class="gr-hub-kicker">FRAME PROCESS MILESTONES</div>
                 <h1>GR1 to GR10 in one continuous journey</h1>
                 <p>Browse each milestone in order, open deliverables directly, and jump to any GR section instantly.</p>
-                <nav class="gr-quick-jump" aria-label="Jump to GR section" id="grQuickJump"></nav>
             </header>
 
             <section class="gr-timeline" id="grTimeline" aria-label="GR timeline"></section>

@@ -23,7 +23,31 @@
             <ul class="nav-links">
                 <li><a href="#why">The Why?</a></li>
                 <li><a href="#process" data-active-sections="#process,#how-it-works">Process</a></li>
-                <li><a href="#research">GR Journey</a></li>
+                <li class="nav-item nav-item-has-submenu">
+                    <div class="nav-parent-row">
+                        <a href="#research-journey">Research Journey</a>
+                        <button
+                            type="button"
+                            class="nav-submenu-toggle"
+                            aria-label="Toggle Research Journey milestones"
+                            aria-expanded="false"
+                            aria-controls="researchMenuPanel"
+                        >
+                            <span class="nav-submenu-caret" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="nav-submenu" id="researchMenuPanel" role="group" aria-label="Research Journey milestones" hidden>
+                        <a href="pages/gr.html#gr1" class="nav-submenu-link">GR1</a>
+                        <a href="pages/gr.html#gr2" class="nav-submenu-link">GR2</a>
+                        <a href="pages/gr.html#gr3" class="nav-submenu-link">GR3</a>
+                        <a href="pages/gr.html#gr4" class="nav-submenu-link">GR4</a>
+                        <a href="pages/gr.html#gr5" class="nav-submenu-link">GR5</a>
+                        <a href="pages/gr.html#gr6" class="nav-submenu-link">GR6</a>
+                        <a href="pages/gr.html#gr8" class="nav-submenu-link">GR8</a>
+                        <a href="pages/gr.html#gr9" class="nav-submenu-link">GR9</a>
+                        <a href="pages/gr.html#gr10" class="nav-submenu-link">GR10</a>
+                    </div>
+                </li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#demo">Demo</a></li>
             </ul>
@@ -40,7 +64,7 @@
                     <p>Frame intelligently groups your event photos and shares them with the right people - instantly. No more manual sorting, no more scattered albums, no more missed moments.</p>
                     <div class="hero-buttons">
                         <a href="pages/demo.html" class="btn btn-primary">Try Frame</a>
-                        <a href="#research" class="btn btn-secondary">Explore Research</a>
+                        <a href="#research-journey" class="btn btn-secondary">Explore Research</a>
                     </div>
                 </div>
                 <img src="assets/images/app-screens/dashboard.png" alt="Frame dashboard screen" class="phone-screen-image">
@@ -165,7 +189,7 @@
     </section>
 
     <!-- GR Section -->
-    <section id="research" class="gr-section">
+    <section id="research-journey" class="gr-section">
         <div class="wide-container">
             <div class="section-header">
                 <h2 class="section-title">The research journey</h2>

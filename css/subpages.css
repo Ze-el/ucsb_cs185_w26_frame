@@ -277,15 +277,40 @@
 }
 
 .gr-hub-page {
+    --gr-stack-gap: 0.55rem;
     background:
         radial-gradient(circle at 88% 12%, rgba(var(--color-accent-light-rgb), 0.2), transparent 40%),
         radial-gradient(circle at 12% 0%, rgba(var(--color-accent-rgb), 0.16), transparent 44%),
         linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface-alt) 50%, var(--color-bg) 100%);
 }
 
+.gr-subnav-region {
+    position: relative;
+    z-index: 920;
+    padding-top: calc(var(--primary-nav-bottom, 90px) + var(--gr-stack-gap));
+    padding-inline: 1rem;
+}
+
+.gr-subnav-shell {
+    max-width: 1120px;
+    margin: 0 auto;
+    position: sticky;
+    top: calc(var(--primary-nav-bottom, 90px) + var(--gr-stack-gap));
+}
+
+.gr-subnav-inner {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-stroke);
+    background: var(--glass-bg-strong);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(24px) saturate(165%);
+    -webkit-backdrop-filter: blur(24px) saturate(165%);
+    padding: 0.7rem 0.8rem;
+}
+
 .gr-hub-main {
     min-height: 100vh;
-    padding-top: 7.4rem;
+    padding-top: calc(var(--primary-nav-bottom, 92px) + 1.8rem);
     padding-bottom: 4rem;
 }
 
@@ -297,7 +322,7 @@
 
 .gr-hub-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.35rem;
 }
 
 .gr-hub-kicker {
@@ -330,14 +355,17 @@
 }
 
 .gr-quick-jump {
-    margin-top: 1.4rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 0.46rem;
+    align-items: stretch;
 }
 
 .gr-jump-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     text-decoration: none;
     color: var(--color-accent-strong);
     border: 1px solid rgba(var(--color-accent-rgb), 0.2);
@@ -346,13 +374,19 @@
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.06em;
-    padding: 0.42rem 0.74rem;
+    min-height: 40px;
+    padding: 0.45rem 0.64rem;
     transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
 .gr-jump-link:hover {
     border-color: rgba(var(--color-accent-rgb), 0.35);
     background: rgba(255, 255, 255, 0.9);
+}
+
+.gr-jump-link.is-active {
+    background: linear-gradient(130deg, var(--accent-faint), rgba(var(--color-accent-light-rgb), 0.16));
+    border-color: rgba(var(--color-accent-rgb), 0.36);
 }
 
 .gr-jump-link.is-muted {
@@ -366,7 +400,7 @@
 }
 
 .gr-milestone {
-    scroll-margin-top: 6.8rem;
+    scroll-margin-top: calc(var(--primary-nav-bottom, 90px) + var(--gr-subnav-height, 88px) + 1rem);
     border-radius: 30px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-stroke);
@@ -386,6 +420,27 @@
     padding: 0.55rem 0.3rem 1.1rem;
 }
 
+.gr-milestone-toggle {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    align-items: start;
+}
+
+.gr-milestone-toggle:disabled {
+    cursor: default;
+}
+
+.gr-milestone-toggle:disabled .gr-toggle-icon {
+    opacity: 0;
+}
+
 .gr-pill {
     display: inline-flex;
     align-items: center;
@@ -400,28 +455,51 @@
     background: rgba(var(--color-accent-rgb), 0.09);
 }
 
-.gr-milestone-head h2 {
+.gr-toggle-copy {
+    display: grid;
+    gap: 0.22rem;
+    min-width: 0;
+}
+
+.gr-toggle-title {
     font-family: "Instrument Serif", "Times New Roman", serif;
     font-size: clamp(1.8rem, 4vw, 2.7rem);
     font-weight: 400;
     line-height: 1.14;
     color: var(--color-text);
-    margin-top: 0.75rem;
 }
 
-.gr-milestone-subtitle {
+.gr-toggle-subtitle {
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: rgba(var(--color-accent-strong-rgb), 0.72);
-    margin-top: 0.25rem;
+    white-space: normal;
 }
 
 .gr-milestone-summary {
     color: var(--color-text-dim);
-    margin-top: 0.78rem;
+    margin-top: 0.68rem;
     max-width: 850px;
+}
+
+.gr-toggle-icon {
+    width: 0.82rem;
+    height: 0.82rem;
+    margin-top: 0.8rem;
+    border-right: 2px solid rgba(var(--color-accent-strong-rgb), 0.74);
+    border-bottom: 2px solid rgba(var(--color-accent-strong-rgb), 0.74);
+    transform: rotate(45deg);
+    transition: transform var(--transition-fast);
+}
+
+.gr-milestone-toggle[aria-expanded="true"] .gr-toggle-icon {
+    transform: rotate(-135deg);
+}
+
+.gr-milestone-panel[hidden] {
+    display: none !important;
 }
 
 .gr-milestone-body {
@@ -555,7 +633,7 @@
     font-size: 0.92rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
     .gr-main {
         padding-top: 6.8rem;
     }
@@ -564,12 +642,20 @@
         height: min(72vh, 760px);
     }
 
+    .gr-hub-page {
+        --gr-subnav-height: 0px;
+    }
+
+    .gr-subnav-region {
+        display: none;
+    }
+
     .gr-hub-main {
-        padding-top: 6.8rem;
+        padding-top: calc(var(--primary-nav-bottom, 86px) + 1.15rem);
     }
 
     .gr-milestone {
-        scroll-margin-top: 6.2rem;
+        scroll-margin-top: calc(var(--primary-nav-bottom, 90px) + var(--gr-subnav-height, 88px) + 0.85rem);
     }
 
     .gr-milestone-body {
@@ -578,6 +664,18 @@
 
     .gr-media-card-figma iframe {
         max-height: 520px;
+    }
+
+    .gr-timeline.is-accordion-mode .gr-milestone {
+        padding: 0.95rem;
+    }
+
+    .gr-timeline.is-accordion-mode .gr-milestone-head {
+        padding-bottom: 0.42rem;
+    }
+
+    .gr-timeline.is-accordion-mode .gr-milestone-summary {
+        margin-bottom: 0.15rem;
     }
 }
 
@@ -612,7 +710,7 @@
     }
 
     .gr-hub-main {
-        padding-top: 6.4rem;
+        padding-top: calc(var(--primary-nav-bottom, 82px) + 0.9rem);
     }
 
     .gr-milestone {
@@ -642,5 +740,19 @@
 
     .gr-hub-header p {
         font-size: 0.96rem;
+    }
+
+    .gr-toggle-title {
+        font-size: clamp(1.45rem, 8vw, 2rem);
+        line-height: 1.1;
+    }
+
+    .gr-toggle-subtitle {
+        font-size: 0.82rem;
+        letter-spacing: 0.025em;
+    }
+
+    .gr-toggle-icon {
+        margin-top: 0.6rem;
     }
 }

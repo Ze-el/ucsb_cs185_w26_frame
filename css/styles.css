@@ -115,6 +115,7 @@ nav {
     width: min(1120px, 100%);
     margin: 0 auto;
     padding: 0.55rem 0.75rem;
+    min-height: 58px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -147,6 +148,10 @@ footer .container {
     position: relative;
     overflow: hidden;
     isolation: isolate;
+}
+
+.nav-content {
+    overflow: visible;
 }
 
 .nav-content::before,
@@ -230,8 +235,9 @@ footer .container > * {
     border-radius: var(--radius-pill);
     padding: 0.2rem 0.55rem;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: visible;
     text-decoration: none;
+    min-width: fit-content;
 }
 
 .logo img {
@@ -250,7 +256,7 @@ footer .container > * {
     transform-origin: left center;
     font-family: "Instrument Serif", "Times New Roman", serif;
     font-size: 2rem;
-    line-height: 0.92;
+    line-height: 1;
     letter-spacing: -0.03em;
     color: var(--color-accent-strong);
     transition:
@@ -272,6 +278,20 @@ nav.brand-revealed .logo-mark-text {
     gap: 0.35rem;
     list-style: none;
     align-items: center;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.nav-parent-row {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.nav-submenu-toggle {
+    display: none;
 }
 
 .nav-toggle {
@@ -343,6 +363,7 @@ nav.nav-open .nav-toggle-bars::after {
 }
 
 .nav-links a {
+    display: block;
     color: var(--color-text-dim);
     text-decoration: none;
     font-size: 0.9rem;
@@ -367,6 +388,12 @@ nav.nav-open .nav-toggle-bars::after {
 
 .nav-links a.active::after {
     content: none;
+}
+
+.nav-links a:focus-visible,
+.nav-submenu-toggle:focus-visible {
+    outline: 2px solid rgba(var(--color-accent-rgb), 0.48);
+    outline-offset: 2px;
 }
 
 /* Hero */
@@ -1226,13 +1253,14 @@ footer p {
     }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1180px) {
     nav {
         top: 0.7rem;
     }
 
     .nav-content {
         padding: 0.45rem 0.6rem;
+        min-height: 54px;
         position: relative;
         justify-content: space-between;
     }
@@ -1242,7 +1270,7 @@ footer p {
     }
 
     nav.brand-revealed .logo-mark-text {
-        max-width: 5.5ch;
+        max-width: 5.85ch;
         margin-left: 0.38rem;
     }
 
@@ -1253,17 +1281,18 @@ footer p {
     .nav-links {
         display: flex;
         position: absolute;
-        top: calc(100% + 0.55rem);
+        top: calc(100% + 0.32rem);
         left: 0;
         right: 0;
         flex-direction: column;
         align-items: stretch;
-        gap: 0.25rem;
-        padding: 0.45rem;
-        border-radius: 22px;
-        border: 1px solid var(--glass-stroke);
-        background: var(--glass-bg-strong);
-        box-shadow: var(--shadow-soft);
+        gap: 0.55rem;
+        padding: 0.72rem;
+        border-radius: 24px;
+        border: 1px solid rgba(var(--color-accent-rgb), 0.24);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 252, 255, 0.93) 100%);
+        box-shadow: 0 18px 44px rgba(var(--color-accent-strong-rgb), 0.16);
         backdrop-filter: blur(24px) saturate(170%);
         -webkit-backdrop-filter: blur(24px) saturate(170%);
         transform-origin: top center;
@@ -1273,10 +1302,100 @@ footer p {
         transition: opacity var(--transition-fast), transform var(--transition-fast);
     }
 
+    .nav-links > li {
+        margin: 0.08rem 0;
+    }
+
+    .nav-parent-row {
+        gap: 0.38rem;
+        align-items: center;
+    }
+
     .nav-links a {
         width: 100%;
         text-align: left;
-        padding: 0.7rem 0.9rem;
+        font-size: 0.99rem;
+        font-weight: 700;
+        line-height: 1.35;
+        padding: 0.84rem 1rem;
+    }
+
+    .nav-links a.active {
+        margin: 0.06rem 0;
+    }
+
+    .nav-item-has-submenu > .nav-parent-row > a {
+        flex: 1;
+    }
+
+    .nav-submenu-toggle {
+        border: 0;
+        background: transparent;
+        color: var(--color-accent-strong);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.36rem 0.2rem;
+        min-width: 1.6rem;
+        min-height: 1.6rem;
+        flex-shrink: 0;
+        transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-submenu-toggle:active {
+        transform: scale(0.96);
+    }
+
+    .nav-submenu-caret {
+        width: 0.56rem;
+        height: 0.56rem;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg) translateY(-1px);
+        transition: transform var(--transition-fast);
+    }
+
+    .nav-submenu-toggle[aria-expanded="true"] .nav-submenu-caret {
+        transform: rotate(-135deg) translateY(-1px);
+    }
+
+    .nav-submenu {
+        margin-top: 0.16rem;
+        margin-bottom: 0.22rem;
+        padding: 0.66rem;
+        border-radius: 18px;
+        border: 1px solid rgba(var(--color-accent-rgb), 0.16);
+        background: rgba(255, 255, 255, 0.8);
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.5rem;
+        overflow: hidden;
+        transform-origin: top center;
+        transition: height 260ms ease, opacity 220ms ease, transform 220ms ease;
+    }
+
+    .nav-submenu[hidden] {
+        display: none !important;
+    }
+
+    .nav-submenu-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 42px;
+        border-radius: 12px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        padding: 0.6rem 0.25rem;
+        border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .nav-submenu-link:hover {
+        border-color: rgba(var(--color-accent-rgb), 0.34);
+        background: rgba(255, 255, 255, 0.98);
     }
 
     nav.nav-open .nav-links {
@@ -1330,8 +1449,28 @@ footer p {
     }
 
     nav.brand-revealed .logo-mark-text {
-        max-width: 4.8ch;
+        max-width: 5.55ch;
         margin-left: 0.3rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+        padding: 0.68rem;
+    }
+
+    .nav-links a {
+        font-size: 0.97rem;
+        padding: 0.8rem 0.94rem;
+    }
+
+    .nav-submenu {
+        gap: 0.44rem;
+        padding: 0.58rem;
+    }
+
+    .nav-submenu-link {
+        min-height: 40px;
+        font-size: 0.78rem;
     }
 
     .btn {
