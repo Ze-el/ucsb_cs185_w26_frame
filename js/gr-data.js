@@ -48,7 +48,7 @@ window.GR_CONTENT = [
         number: 'GR3',
         title: 'Project Website',
         subtitle: 'Public-facing project narrative',
-        summary: 'Set up and maintained the external-facing project site to communicate process and progress clearly.',
+        summary: 'You\'re looking at it.',
         status: 'coming-soon',
         resources: [
             {
@@ -124,7 +124,7 @@ window.GR_CONTENT = [
     {
         id: 'gr6',
         number: 'GR6',
-        title: 'MedFi Prototype and Evaluation README',
+        title: 'MedFi Prototype',
         subtitle: 'Interactive medium-fidelity prototype',
         summary: 'Produced the medium-fidelity MedFi prototype and evaluation guide used to structure testing and iteration.',
         status: 'available',
@@ -156,7 +156,7 @@ window.GR_CONTENT = [
     {
         id: 'gr8',
         number: 'GR8',
-        title: 'High-Fi MedFi Prototype',
+        title: 'High-Fi Prototype',
         subtitle: 'Visual and interaction refinement',
         summary: 'Integrated GR7 findings into a polished high-fidelity flow and improved interaction detail.',
         status: 'available',
