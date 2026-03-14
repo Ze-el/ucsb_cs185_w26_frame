@@ -554,6 +554,18 @@
     gap: 0.65rem;
 }
 
+.resource-link-with-action {
+    width: 100%;
+}
+
+.resource-main-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    flex: 1;
+    min-width: 0;
+}
+
 .resource-main {
     color: var(--color-text);
     font-weight: 700;

@@ -16,6 +16,8 @@
     const renderResource = (resource) => {
         const label = escapeHtml(resource.label);
         const isVideoResource = Boolean(resource.streamUrl || resource.downloadUrl || resource.type === 'Video' || resource.type === 'MP4');
+        const externalUrl = resource.externalUrl ? escapeHtml(resource.externalUrl) : '';
+        const hasExternalUrl = Boolean(externalUrl);
 
         if (!resource.url) {
             return `
@@ -65,6 +67,32 @@
                                     </svg>
                                 </a>
                             ` : ''}
+                        </span>
+                    </div>
+                </li>
+            `;
+        }
+
+        if (hasExternalUrl) {
+            return `
+                <li class="gr-resource-item">
+                    <div class="resource-link resource-link-with-action">
+                        <a href="${resource.url}" target="_blank" rel="noopener" class="resource-main-link">
+                            <span class="resource-main">${label}</span>
+                        </a>
+                        <span class="resource-actions">
+                            <a
+                                href="${externalUrl}"
+                                target="_blank"
+                                rel="noopener"
+                                class="resource-icon-link"
+                                aria-label="Open ${label} external link"
+                                title="Open external link"
+                            >
+                                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                    <path d="M6.2 13.8a.9.9 0 0 1 0-1.27l6.02-6.03H8.1a.9.9 0 0 1 0-1.8h6.3a.9.9 0 0 1 .9.9v6.3a.9.9 0 1 1-1.8 0V7.76l-6.03 6.02a.9.9 0 0 1-1.27 0Z"></path>
+                                </svg>
+                            </a>
                         </span>
                     </div>
                 </li>

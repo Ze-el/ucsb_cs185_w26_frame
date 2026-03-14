@@ -10,7 +10,8 @@ window.GR_CONTENT = [
             {
                 label: 'Slides',
                 type: 'PDF',
-                url: '../assets/pdfs/Slide%20Decks/frame-gr1.pdf'
+                url: '../assets/pdfs/Slide%20Decks/frame-gr1.pdf',
+                externalUrl: 'https://docs.google.com/presentation/d/1O6ViRIg2QurW6KIkGo9wZzs-Kkuj43Zm/edit?usp=share_link&ouid=113886349944255400802&rtpof=true&sd=true'
             }
         ],
         media: [
@@ -32,7 +33,8 @@ window.GR_CONTENT = [
             {
                 label: 'Slides',
                 type: 'PDF',
-                url: '../assets/pdfs/Slide%20Decks/frame-gr2.pdf'
+                url: '../assets/pdfs/Slide%20Decks/frame-gr2.pdf',
+                externalUrl: 'https://docs.google.com/presentation/d/1_CEGDOEzAahgwda9F4dxLXejVTV74IOX/edit?usp=sharing&ouid=113886349944255400802&rtpof=true&sd=true'
             }
         ],
         media: [
@@ -76,7 +78,8 @@ window.GR_CONTENT = [
             {
                 label: 'Slides',
                 type: 'PDF',
-                url: '../assets/pdfs/Slide%20Decks/frame-gr4.pdf'
+                url: '../assets/pdfs/Slide%20Decks/frame-gr4.pdf',
+                externalUrl: 'https://docs.google.com/presentation/d/13XPmxyjvcWJj4ikpkmjbbSeXm3sftHO3/edit?usp=sharing&ouid=113886349944255400802&rtpof=true&sd=true'
             },
             {
                 label: 'Concept Video',
@@ -105,7 +108,8 @@ window.GR_CONTENT = [
             {
                 label: 'Slides',
                 type: 'PDF',
-                url: '../assets/pdfs/Slide%20Decks/frame-gr5.pdf'
+                url: '../assets/pdfs/Slide%20Decks/frame-gr5.pdf',
+                externalUrl: 'https://docs.google.com/presentation/d/1NB9FKFhnXXAg63qQ7QmwmnA4KllKGNr6/edit?usp=sharing&ouid=113886349944255400802&rtpof=true&sd=true'
             },
             {
                 label: 'Sketch Report',
@@ -132,7 +136,8 @@ window.GR_CONTENT = [
             {
                 label: 'Slides',
                 type: 'PDF',
-                url: '../assets/pdfs/Slide%20Decks/frame-gr6.pdf'
+                url: '../assets/pdfs/Slide%20Decks/frame-gr6.pdf',
+                externalUrl: 'https://docs.google.com/presentation/d/1tTjsQqQnFZ_FtYkUZNC-_7qTCB8eMWV4/edit?usp=sharing&ouid=113886349944255400802&rtpof=true&sd=true'
             },
             {
                 label: 'Figma (MedFi)',
@@ -164,12 +169,18 @@ window.GR_CONTENT = [
             {
                 label: 'Slides',
                 type: 'PDF',
-                url: '../assets/pdfs/Slide%20Decks/frame-gr8.pdf'
+                url: '../assets/pdfs/Slide%20Decks/frame-gr8.pdf',
+                externalUrl: 'https://docs.google.com/presentation/d/1yBfuOMg7GA-m0dEZp8GwghE9rdAyzcUB/edit?usp=sharing&ouid=113886349944255400802&rtpof=true&sd=true'
             },
             {
                 label: 'Figma (HiFi)',
                 type: 'Figma',
                 url: 'https://www.figma.com/proto/2Wn6xPeP9VjEOebTi9eEeg/FRAME-Prototype?node-id=246-3042&t=h2qJVhD1fAAOdE35-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=246%3A3042&show-proto-sidebar=1'
+            },
+            {
+                label: 'README (How to Evaluate HiFi)',
+                type: 'PDF',
+                url: '../assets/pdfs/gr6-README.pdf'
             }
         ],
         media: [
@@ -191,7 +202,8 @@ window.GR_CONTENT = [
             {
                 label: 'Pitch Background',
                 type: 'PDF',
-                url: '../assets/pdfs/gr9-pitch.pdf'
+                url: '../assets/pdfs/gr9-pitch.pdf',
+                externalUrl: 'https://docs.google.com/presentation/d/1XlF6yyzhVX6gv_znPbmfOCv334ms6Sgs/edit?usp=share_link&ouid=113886349944255400802&rtpof=true&sd=true'
             },
             {
                 label: 'Pitch Script',
@@ -208,7 +220,8 @@ window.GR_CONTENT = [
             {
                 label: 'Poster',
                 type: 'PDF',
-                url: '../assets/pdfs/gr9-poster.pdf'
+                url: '../assets/pdfs/gr9-poster.pdf',
+                externalUrl: 'https://docs.google.com/presentation/d/1fmeD9RjZQm_vRw1ZkHHJF4yZiSRZUoNn/edit?usp=share_link&ouid=113886349944255400802&rtpof=true&sd=true'
             }
         ],
         media: [
@@ -230,7 +243,8 @@ window.GR_CONTENT = [
             {
                 label: 'Final Report',
                 type: 'PDF',
-                url: '../assets/pdfs/gr10-finalreport.pdf'
+                url: '../assets/pdfs/gr10-finalreport.pdf',
+                externalUrl: 'https://docs.google.com/document/d/1ekbzKZh8SGy7Vb7MutQfI_qyw3fDATBpsCA2kK-RcoE/edit?usp=share_link'
             }
         ],
         media: [
