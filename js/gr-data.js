@@ -62,8 +62,10 @@ window.GR_CONTENT = [
             },
             {
                 label: 'Concept Video',
-                type: 'MP4',
-                url: 'https://player.vimeo.com/video/1162757315'
+                type: 'Video',
+                url: 'https://vimeo.com/1162757315',
+                streamUrl: 'https://vimeo.com/1162757315',
+                downloadUrl: 'https://vimeo.com/1162757315/download'
             }
         ],
         media: [
@@ -111,7 +113,7 @@ window.GR_CONTENT = [
             {
                 label: 'Figma (MedFi)',
                 type: 'Figma',
-                url: 'https://www.figma.com/proto/2Wn6xPeP9VjEOebTi9eEeg/FRAME-Prototype?node-id=55-1927&t=qaJXnAz58juFEZ8w-1&scaling=scale-down&content-scaling=fixed&page-id=8%3A1157&starting-point-node-id=8%3A1383&show-proto-sidebar=0'
+                url: 'https://www.figma.com/proto/2Wn6xPeP9VjEOebTi9eEeg/FRAME-Prototype?node-id=66-5437&t=h2qJVhD1fAAOdE35-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=66%3A5437&show-proto-sidebar=1'
             },
             {
                 label: 'README (How to Evaluate MedFi)',
@@ -123,7 +125,7 @@ window.GR_CONTENT = [
             {
                 type: 'figma',
                 title: 'GR6 MedFi Prototype',
-                embedUrl: 'https://embed.figma.com/proto/2Wn6xPeP9VjEOebTi9eEeg/FRAME-Prototype?node-id=55-1927&t=qaJXnAz58juFEZ8w-1&scaling=scale-down&content-scaling=fixed&page-id=8%3A1157&starting-point-node-id=8%3A1383&show-proto-sidebar=0&hide-ui=1&embed-host=share'
+                embedUrl: 'https://embed.figma.com/proto/2Wn6xPeP9VjEOebTi9eEeg/FRAME-Prototype?node-id=66-5437&t=h2qJVhD1fAAOdE35-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=66%3A5437&show-proto-sidebar=1&hide-ui=1&embed-host=share'
             }
         ]
     },
@@ -157,12 +159,18 @@ window.GR_CONTENT = [
                 url: null
             },
             {
-                label: 'Figma (MedFi)',
-                type: 'Pending',
-                url: null
+                label: 'Figma (HiFi)',
+                type: 'Figma',
+                url: 'https://www.figma.com/proto/2Wn6xPeP9VjEOebTi9eEeg/FRAME-Prototype?node-id=246-3042&t=h2qJVhD1fAAOdE35-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=246%3A3042&show-proto-sidebar=1'
             }
         ],
-        media: []
+        media: [
+            {
+                type: 'figma',
+                title: 'GR8 HiFi Prototype',
+                embedUrl: 'https://embed.figma.com/proto/2Wn6xPeP9VjEOebTi9eEeg/FRAME-Prototype?node-id=246-3042&t=h2qJVhD1fAAOdE35-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=246%3A3042&show-proto-sidebar=1&hide-ui=1&embed-host=share'
+            }
+        ]
     },
     {
         id: 'gr9',

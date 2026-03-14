@@ -543,16 +543,17 @@
     min-height: 64px;
     border-radius: 14px;
     padding: 0.62rem 0.75rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
     align-items: center;
-    column-gap: 0.65rem;
-    row-gap: 0.2rem;
+    justify-content: space-between;
+    gap: 0.65rem;
 }
 
 .resource-main {
     color: var(--color-text);
     font-weight: 700;
+    flex: 1;
+    min-width: 0;
 }
 
 .resource-meta,
@@ -572,14 +573,44 @@
 }
 
 .gr-resource-item.is-missing {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
     align-items: center;
-    column-gap: 0.65rem;
-    row-gap: 0.2rem;
     padding: 0.62rem 0.75rem;
     opacity: 0.72;
     border-style: dashed;
+}
+
+.resource-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.resource-icon-link {
+    width: 33px;
+    height: 33px;
+    border-radius: 10px;
+    border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+    background: rgba(255, 255, 255, 0.84);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(var(--color-accent-strong-rgb), 0.8);
+    text-decoration: none;
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.resource-icon-link:hover {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(var(--color-accent-rgb), 0.34);
+    color: var(--color-accent-strong);
+}
+
+.resource-icon-link svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
 }
 
 .gr-media-panel {
