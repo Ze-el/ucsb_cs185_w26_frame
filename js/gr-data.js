@@ -205,8 +205,8 @@ window.GR_CONTENT = [
         resources: [
             {
                 label: 'Final Report',
-                type: 'Pending',
-                url: null
+                type: 'PDF',
+                url: '../assets/pdfs/gr10-finalreport.pdf'
             }
         ],
         media: []
