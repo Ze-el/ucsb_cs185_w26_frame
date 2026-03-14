@@ -13,7 +13,13 @@ window.GR_CONTENT = [
                 url: '../assets/pdfs/Slide%20Decks/frame-gr1.pdf'
             }
         ],
-        media: []
+        media: [
+            {
+                type: 'pdf',
+                title: 'GR1 Slides Preview',
+                embedUrl: '../assets/pdfs/Slide%20Decks/frame-gr1.pdf'
+            }
+        ]
     },
     {
         id: 'gr2',
@@ -29,7 +35,13 @@ window.GR_CONTENT = [
                 url: '../assets/pdfs/Slide%20Decks/frame-gr2.pdf'
             }
         ],
-        media: []
+        media: [
+            {
+                type: 'pdf',
+                title: 'GR2 Slides Preview',
+                embedUrl: '../assets/pdfs/Slide%20Decks/frame-gr2.pdf'
+            }
+        ]
     },
     {
         id: 'gr3',
@@ -45,7 +57,13 @@ window.GR_CONTENT = [
                 url: 'https://github.com/Ze-el/ucsb_cs185_w26_frame'
             }
         ],
-        media: []
+        media: [
+            {
+                type: 'image',
+                title: 'GR3 Website Preview',
+                embedUrl: '../assets/images/other/Website%20Preview.png'
+            }
+        ]
     },
     {
         id: 'gr4',
@@ -95,7 +113,13 @@ window.GR_CONTENT = [
                 url: '../assets/pdfs/gr5-sketching_report.pdf'
             }
         ],
-        media: []
+        media: [
+            {
+                type: 'pdf',
+                title: 'GR5 Slides Preview',
+                embedUrl: '../assets/pdfs/Slide%20Decks/frame-gr5.pdf'
+            }
+        ]
     },
     {
         id: 'gr6',
@@ -209,6 +233,12 @@ window.GR_CONTENT = [
                 url: '../assets/pdfs/gr10-finalreport.pdf'
             }
         ],
-        media: []
+        media: [
+            {
+                type: 'pdf',
+                title: 'GR10 Final Report Preview',
+                embedUrl: '../assets/pdfs/gr10-finalreport.pdf'
+            }
+        ]
     }
 ];

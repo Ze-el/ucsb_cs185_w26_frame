@@ -91,11 +91,21 @@
 
         return media.map((item) => {
             const title = escapeHtml(item.title || 'Embedded media');
+            const embedUrl = escapeHtml(item.embedUrl || '');
+
+            if (item.type === 'image') {
+                return `
+                    <figure class="gr-media-card gr-media-card-image">
+                        <img src="${embedUrl}" alt="${title}" loading="lazy">
+                        <figcaption>${title}</figcaption>
+                    </figure>
+                `;
+            }
 
             if (item.type === 'figma') {
                 return `
                     <figure class="gr-media-card gr-media-card-figma">
-                        <iframe src="${item.embedUrl}" allowfullscreen title="${title}"></iframe>
+                        <iframe src="${embedUrl}" allowfullscreen title="${title}"></iframe>
                         <figcaption>${title}</figcaption>
                     </figure>
                 `;
@@ -108,7 +118,7 @@
                     return `
                         <figure class="gr-media-card gr-media-card-video">
                             <video controls preload="metadata" playsinline title="${title}">
-                                <source src="${item.embedUrl}">
+                                <source src="${embedUrl}">
                                 Your browser does not support the video tag.
                             </video>
                             <figcaption>${title}</figcaption>
@@ -118,7 +128,7 @@
 
                 return `
                     <figure class="gr-media-card gr-media-card-video">
-                        <iframe src="${item.embedUrl}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${title}"></iframe>
+                        <iframe src="${embedUrl}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${title}"></iframe>
                         <figcaption>${title}</figcaption>
                     </figure>
                 `;
@@ -126,7 +136,7 @@
 
             return `
                 <figure class="gr-media-card">
-                    <iframe src="${item.embedUrl}" title="${title}"></iframe>
+                    <iframe src="${embedUrl}" title="${title}"></iframe>
                     <figcaption>${title}</figcaption>
                 </figure>
             `;
@@ -146,7 +156,6 @@
                     <span class="gr-pill">${escapeHtml(item.number)}</span>
                     <span class="gr-toggle-copy">
                         <span class="gr-toggle-title">${escapeHtml(item.title)}</span>
-                        <span class="gr-toggle-subtitle">${escapeHtml(item.subtitle || '')}</span>
                     </span>
                     <span class="gr-toggle-icon" aria-hidden="true"></span>
                 </button>

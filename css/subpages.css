@@ -630,11 +630,21 @@
 
 .gr-media-card iframe {
     width: 100%;
+    aspect-ratio: 4 / 3;
     border: 0;
     border-radius: 15px;
     display: block;
     background: #fff;
     border: 1px solid rgba(var(--color-accent-rgb), 0.16);
+}
+
+.gr-media-card-image img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid rgba(var(--color-accent-rgb), 0.16);
+    display: block;
 }
 
 .gr-media-card figcaption {
