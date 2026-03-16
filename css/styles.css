@@ -953,7 +953,7 @@ section {
 }
 
 .laurel-awards--hero .laurel-award-badge {
-    width: 162px;
+    width: clamp(110px, 38vw, 162px);
 }
 
 .laurel-award-badge {
@@ -1270,6 +1270,10 @@ footer p {
     }
 
     .hero-buttons {
+        justify-content: center;
+    }
+
+    .laurel-awards--hero {
         justify-content: center;
     }
 
