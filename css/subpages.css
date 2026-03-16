@@ -89,9 +89,9 @@
     border: 1px solid var(--glass-stroke);
     border-radius: 30px;
     padding: 1rem;
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow: var(--shadow-md), var(--glass-highlight);
+    backdrop-filter: blur(52px) saturate(200%) brightness(1.04);
+    -webkit-backdrop-filter: blur(52px) saturate(200%) brightness(1.04);
 }
 
 .demo-frame-card iframe {
@@ -232,9 +232,9 @@
     border: 1px solid var(--glass-stroke);
     border-radius: 30px;
     padding: 1rem;
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow: var(--shadow-md), var(--glass-highlight);
+    backdrop-filter: blur(52px) saturate(200%) brightness(1.04);
+    -webkit-backdrop-filter: blur(52px) saturate(200%) brightness(1.04);
 }
 
 .gr-deck-frame {
@@ -302,9 +302,9 @@
     border-radius: var(--radius-md);
     border: 1px solid var(--glass-stroke);
     background: var(--glass-bg-strong);
-    box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(24px) saturate(165%);
-    -webkit-backdrop-filter: blur(24px) saturate(165%);
+    box-shadow: var(--shadow-soft), var(--glass-highlight);
+    backdrop-filter: blur(52px) saturate(210%) brightness(1.05);
+    -webkit-backdrop-filter: blur(52px) saturate(210%) brightness(1.05);
     padding: 0.7rem 0.8rem;
 }
 
@@ -368,8 +368,11 @@
     width: 100%;
     text-decoration: none;
     color: var(--color-accent-strong);
-    border: 1px solid rgba(var(--color-accent-rgb), 0.2);
-    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(24px) saturate(190%) brightness(1.04);
+    -webkit-backdrop-filter: blur(24px) saturate(190%) brightness(1.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
     border-radius: 999px;
     font-size: 0.8rem;
     font-weight: 700;
@@ -380,8 +383,8 @@
 }
 
 .gr-jump-link:hover {
-    border-color: rgba(var(--color-accent-rgb), 0.35);
-    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.55);
 }
 
 .gr-jump-link.is-active {
@@ -404,9 +407,9 @@
     border-radius: 30px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-stroke);
-    box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(24px) saturate(160%);
-    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    box-shadow: var(--shadow-soft), var(--glass-highlight);
+    backdrop-filter: blur(48px) saturate(200%) brightness(1.04);
+    -webkit-backdrop-filter: blur(48px) saturate(200%) brightness(1.04);
     padding: 1.25rem;
 }
 
@@ -516,8 +519,11 @@
 .gr-resources-panel,
 .gr-media-panel {
     border-radius: 22px;
-    border: 1px solid rgba(var(--color-accent-rgb), 0.14);
-    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(32px) saturate(190%) brightness(1.04);
+    -webkit-backdrop-filter: blur(32px) saturate(190%) brightness(1.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
     padding: 1rem;
 }
 
@@ -537,8 +543,11 @@
 
 .gr-resource-item {
     border-radius: 14px;
-    border: 1px solid rgba(var(--color-accent-rgb), 0.18);
-    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
     min-height: 64px;
 }
 
@@ -608,8 +617,11 @@
     width: 33px;
     height: 33px;
     border-radius: 10px;
-    border: 1px solid rgba(var(--color-accent-rgb), 0.2);
-    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.48);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
     display: inline-flex;
     align-items: center;
     justify-content: center;
