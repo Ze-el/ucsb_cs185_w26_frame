@@ -13,6 +13,31 @@
         .replaceAll('"', '&quot;')
         .replaceAll("'", '&#39;');
 
+    const renderLaurelAwards = () => {
+        const badges = [
+            {
+                src: '../assets/images/awards/Most%20Original%20Idea%20-%20UCSB%20CS185.png',
+                label: 'Most Original Idea - UCSB CS185'
+            },
+            {
+                src: '../assets/images/awards/Best%20Core%20Concept%20-%20UCSB%20CS185.png',
+                label: 'Best Core Concept - UCSB CS185'
+            }
+        ];
+
+        const renderedBadges = badges.map((badge) => `
+            <div class="laurel-award-badge">
+                <img src="${escapeHtml(badge.src)}" alt="${escapeHtml(badge.label)}" loading="lazy">
+            </div>
+        `).join('');
+
+        return `
+            <div class="laurel-awards laurel-awards--center" aria-label="Concept video awards">
+                ${renderedBadges}
+            </div>
+        `;
+    };
+
     const renderResource = (resource) => {
         const label = escapeHtml(resource.label);
         const isVideoResource = Boolean(resource.streamUrl || resource.downloadUrl || resource.type === 'Video' || resource.type === 'MP4');
@@ -196,6 +221,11 @@
                     <ul class="gr-resources-list">
                         ${item.resources.map(renderResource).join('')}
                     </ul>
+                    ${item.id === 'gr4' ? `
+                        <div class="gr-awards-strip">
+                            ${renderLaurelAwards()}
+                        </div>
+                    ` : ''}
                 </div>
                 <div class="gr-media-panel">
                     ${renderMedia(item.media)}

@@ -940,6 +940,57 @@ section {
     margin-top: 0.35rem;
 }
 
+.gr-card-with-awards .gr-card-heading-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+}
+
+.gr-card-with-awards .gr-card-heading-row h3 {
+    flex: 1;
+    min-height: 0;
+}
+
+.laurel-awards {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.laurel-award-badge {
+    position: relative;
+    width: 212px;
+    aspect-ratio: 688 / 381;
+    flex: 0 0 auto;
+    transition: transform var(--transition-fast);
+    transform-origin: center;
+}
+
+.laurel-award-badge:hover {
+    transform: scale(1.06);
+}
+
+.laurel-award-badge img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.laurel-awards--inline {
+    margin: 0.72rem 0 0 auto;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.laurel-awards--inline .laurel-award-badge {
+    width: 118px;
+}
+
+.laurel-awards--center {
+    justify-content: center;
+}
+
 .gr-card-dull {
     background: rgba(255, 255, 255, 0.34);
     border-color: rgba(var(--color-accent-strong-rgb), 0.08);
@@ -1505,6 +1556,14 @@ footer p {
         min-height: 3.7rem;
     }
 
+    .gr-card-with-awards .gr-card-heading-row {
+        flex-wrap: wrap;
+    }
+
+    .gr-card-with-awards .laurel-awards--inline {
+        margin-top: 0.2rem;
+    }
+
     .gr-card > p {
         min-height: 4.2rem;
     }
@@ -1537,6 +1596,14 @@ footer p {
 @media (prefers-reduced-motion: reduce) {
     .logo-mark-text {
         transition: none;
+    }
+
+    .laurel-award-badge {
+        transition: none;
+    }
+
+    .laurel-award-badge:hover {
+        transform: none;
     }
 
     .gr-card {

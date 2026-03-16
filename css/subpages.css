@@ -636,6 +636,16 @@
     align-content: start;
 }
 
+.gr-awards-strip {
+    margin-top: 0.85rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(var(--color-accent-rgb), 0.16);
+}
+
+.gr-awards-strip .laurel-awards--center .laurel-award-badge {
+    width: 220px;
+}
+
 .gr-media-card {
     margin: 0;
 }
@@ -789,6 +799,14 @@
     .gr-media-panel {
         border-radius: 16px;
         padding: 0.8rem;
+    }
+
+    .gr-awards-strip .laurel-awards--center {
+        gap: 0.7rem;
+    }
+
+    .gr-awards-strip .laurel-awards--center .laurel-award-badge {
+        width: 158px;
     }
 
     .gr-resource-item {
